@@ -17,7 +17,7 @@ class Reservation(models.Model):
     capacity = models.IntegerField(default=0)
 
 class Client(User):
-    tier = 'inactive'
+    tier = models.CharField(max_length=200)
     reservation = models.ForeignKey('Reservation', on_delete=models.CASCADE)
     def create_reservation(title, date_time, capacity):
         return Reservation(title, date_time, capacity)
