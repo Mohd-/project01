@@ -1,19 +1,22 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Customer(models.Model):
-    name = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #name = models.CharField(max_length=200)
+    #email = models.CharField(max_length=200)
     phone_no = models.CharField(max_length=200)
     def __str__(self):
-        return self.name
+        return self.user.username
 
 class Client(models.Model):
-    name = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #name = models.CharField(max_length=200)
+    #email = models.CharField(max_length=200)
     phone_no = models.CharField(max_length=200)
     tier = models.CharField(max_length=200)
     def __str__(self):
-        return self.name
+        return self.user.username
     
 class Reservation(models.Model):
     title = models.CharField(max_length=450)
