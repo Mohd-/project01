@@ -1,18 +1,19 @@
 from django.db import models
-from django.contrib.auth.models import User, AbstractBaseUser
+from django.contrib.auth.models import User, AbstractUser
+
+#uncomment and use as user model for deployment
+
+#class User(AbstractUser):
+#   pass
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    #name = models.CharField(max_length=200)
-    #email = models.CharField(max_length=200)
     phone_no = models.CharField(max_length=200)
     def __str__(self):
         return self.user.username
 
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    #name = models.CharField(max_length=200)
-    #email = models.CharField(max_length=200)
     phone_no = models.CharField(max_length=200)
     tier = models.CharField(max_length=200)
     def __str__(self):
