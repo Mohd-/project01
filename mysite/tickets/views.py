@@ -5,4 +5,4 @@ def index(request):
     return HttpResponse("This is the main page")
 
 def register(request):
-    return Http
+    return HttpResponse('sign up here!')
