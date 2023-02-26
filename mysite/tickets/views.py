@@ -20,7 +20,7 @@ def register(request): #should be signup
             else:
                 Customer.objects.create(user=user, phone_no=form.cleaned_data['phone_no'])
             login(request, user)
-            return redirect('home')
+            return redirect(index)
     else:
         form = SignupForm()
     return render(request, 'tickets/register.html', {'form': form})
