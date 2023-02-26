@@ -16,9 +16,9 @@ def register(request): #should be signup
         if form.is_valid():
             user = form.save()
             if form.cleaned_data['type'] == 'client':
-                Client.objects.create(user=user)
+                Client.objects.create(user=user, phone_no=form.cleaned_data['phone_no'], tier=form.cleaned_data['tier'])
             else:
-                Customer.objects.create(user=user)
+                Customer.objects.create(user=user, phone_no=form.cleaned_data['phone_no'])
             login(request, user)
             return redirect('home')
     else:
