@@ -24,6 +24,7 @@ class Reservation(models.Model):
     date_time = models.DateTimeField('date and time of the event')
     capacity = models.IntegerField(default=0)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    cost = models.IntegerField(default=999999)
     def __str__(self):
         return self.title
 
