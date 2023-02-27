@@ -1,3 +1,3 @@
 ## Purpose
 
-A small webapp for booking tickets for end users `models.Customer`, and managing events for clients `models.Client`. 
+Mysite is a website made in Django, containing the app `tickets`, which is a tickets booking system.
