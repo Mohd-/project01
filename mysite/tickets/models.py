@@ -15,7 +15,8 @@ class Customer(models.Model):
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_no = models.CharField(max_length=200)
-    tier = models.CharField(max_length=200)
+    tierChoices = models.TextChoices('1','2','3')
+    tier = models.CharField(blank=True, choices=tierChoices, max_length=200)
     def __str__(self):
         return self.user.username
     
